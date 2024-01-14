@@ -1,17 +1,21 @@
 import { useState } from 'react'
 import './App.css'
-import NavBar from './component/NavBar/NavBar'
-import Banner from './component/Banner/Banner'
-import RowPost from './component/RowPost/RowPost'
-import Footer from './component/Footer/Footer'
+import Home from './pages/Home'
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
+
 function App() {
   return (
-    <>
-      <NavBar/>
-      <Banner/>
-      <RowPost/>
-      <Footer/>
-    </>
+    <BrowserRouter>
+      <Routes>
+
+        <Route path='/' element={<Home/>} />
+        <Route path='/login' element={<LoginPage/>} />
+        <Route path='/signup' element={<SignupPage/>} />
+
+      </Routes>
+    </BrowserRouter>
   )
 }
 
