@@ -1,12 +1,16 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useContext} from 'react'
 import './RowPost.css'
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { Firebase,db } from '../../firebase/config'
+import { useNavigate } from 'react-router-dom';
+import {PostContext} from '../../PostContext/PostContext';
+
 
 
 function RowPost() {
+    const {setPostDetails} = useContext(PostContext)
+    const navigat = useNavigate()
     const [products, setProducts] = useState([]);
-
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -39,7 +43,10 @@ function RowPost() {
                         
                         {products.map((item,index)=>{
                             return(
-                                <li data-aut-id="itemBox" data-aut-category-id="1453" className="_1DNjI" key={index}>
+                                <li style={{cursor:'pointer'}} onClick={()=>{
+                                    setPostDetails(item)
+                                    navigat('/post')
+                                }} data-aut-id="itemBox" data-aut-category-id="1453" className="_1DNjI" key={index}>
                                 <a >
                                     <figure className="_3UrC5" data-aut-id="itemImage">
                                         <div className="_1apxS">

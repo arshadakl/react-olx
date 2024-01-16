@@ -1217,3 +1217,8 @@ h3 {
         padding-bottom: 24px
     }
 }
+
+.slick-initialized{
+    background-size: 100%;
+    background-repeat: none;
+}

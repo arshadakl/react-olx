@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react'
+import React, { useState,useContext, useEffect } from 'react'
 import { Firebase,db } from '../../firebase/config'
 import './Sell.css'
 import { getStorage, ref,getDownloadURL, uploadBytes } from 'firebase/storage'
@@ -8,6 +8,7 @@ import { AuthContext } from '../../firebase/context';
 
 
 function Sell() {
+    
     const navigat = useNavigate()
     const {user} = useContext(AuthContext)
     const storage = getStorage(Firebase)
@@ -19,10 +20,37 @@ function Sell() {
     const [image2, setimage2] = useState('')
     const [image3, setimage3] = useState('')
     const [location, setLocation] = useState('')
+    const [valErr,setvalErr] = useState('')
     const imgPrvIcon = "https://cdn3.iconfinder.com/data/icons/file-and-folder-fill-icons-set/144/File_Upload-512.png"
+
+
+    useEffect(()=>{
+        if(!user){
+            navigat('/login')
+        }
+    },[user])
 
     const handleFormSubmit = async (e) => {
         e.preventDefault()
+
+
+
+        if (
+            brand.trim().length < 2 ||
+            title.trim().length < 2 ||
+            description.trim().length < 5 ||
+            price.trim().length < 5 ||
+            location.trim().length < 5 ||
+            !image1 ||
+            !image2 ||
+            !image3
+        ) {
+            // Display an error message or handle the validation failure
+            // console.log("All fields are required and must have at least characters");
+            setvalErr("All fields are required and must have at least characters")
+            return;
+        }
+    
         // console.log(user);
         const imageUrls = await Promise.all([uploadImage(image1), uploadImage(image2), uploadImage(image3)]);
         console.log(imageUrls);
@@ -89,6 +117,7 @@ function Sell() {
                             <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
                             <hr />
                             <button type='submit' className='postBTN'>Post</button>
+                            <p className='text-danger'>{valErr}</p>
                         </form>
                     </div>
                 </div>

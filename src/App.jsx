@@ -9,8 +9,11 @@ import Post from './pages/Post'
 import { AuthContext } from './firebase/context'
 import { Firebase } from './firebase/config';
 import SellingPage from './pages/SellingPage';
+import { PostContext } from './PostContext/PostContext';
 
 function App() {
+
+  // const {setPostDetails} = useContext(PostContext)
   const auth = getAuth(Firebase)
   const {  setUser } = useContext(AuthContext)
   useEffect(() => {
@@ -26,7 +29,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignupPage />} />
@@ -35,6 +37,8 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+
+    
   )
 }
 

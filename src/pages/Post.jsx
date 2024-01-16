@@ -5,8 +5,9 @@ import SinglePost from '../component/SinglePost/SinglePost'
 function Post() {
   return (
     <>
-    <NavBar/>
-    <SinglePost/>
+
+      <NavBar/>
+      <SinglePost/>
     </>
   )
 }
