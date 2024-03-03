@@ -113,6 +113,7 @@ function Sell() {
                             
 
                             <hr />
+                            
                             <label htmlFor="" className='mt-2'> LOCATION</label>
                             <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
                             <hr />

@@ -46,7 +46,7 @@ function Login() {
                         <div className='input-area '>
                             <form onSubmit={handleLogin}>
                                 <input value={email} onChange={(e) => setEmail(e.target.value)} className='px-3 mt-2' type="email" placeholder='Email' />
-                                <input value={password} onChange={(e) => setPassword(e.target.value)} className='px-3 mt-2' type="text" placeholder='Password' />
+                                <input value={password} onChange={(e) => setPassword(e.target.value)} className='px-3 mt-2' type="password" placeholder='Password' />
                                 <button type='submit' className='postBtn mt-2'>Sign in</button>
                             </form>
                         </div>

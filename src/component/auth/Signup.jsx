@@ -14,29 +14,6 @@ function Signup() {
   const [password, setPassword] = useState('')
   // const auth = getAuth()
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-  //     const user = userCredential.user;
-
-  //     // Check if updateProfile method is available
-  //     if (user.updateProfile) {
-  //       await user.updateProfile({
-  //         displayName: username
-  //       });
-  //     } else {
-  //       console.log("updateProfile method is not available for this user.");
-  //     }
-
-  //     // Rest of your code...
-  //   } catch (error) {
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-  //     console.error(`Error code: ${errorCode}, Message: ${errorMessage}`);
-  //   }
-  // };
 
 
   const handleSubmit = async (e) => {
@@ -111,7 +88,7 @@ return (
               <input className='px-3 mt-2' value={username} type="text" onChange={(e) => setUsename(e.target.value)} placeholder='User Name' />
               <input className='px-3 mt-2' value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder='Email' />
               <input className='px-3 mt-2' value={mobile} onChange={(e) => setMobile(e.target.value)} type="number" placeholder='Mobile' />
-              <input className='px-3 mt-2' value={password} onChange={(e) => setPassword(e.target.value)} type="text" placeholder='Password' />
+              <input className='px-3 mt-2' value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password' />
               <button type='submit' className='postBtn mt-2'>Create Account</button>
             </form>
           </div>
